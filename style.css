@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box; 
+    
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 1rem auto;
+    width: 80%;
+    max-width: 768px;
+    background-color: #f5f5dc;
+}
+.header {
+    text-align: center;
+}
+
+.password-box {
+    background-color: #f5f5f5;
+    border: 2px solid;
+    border-color: #a9a9a9;
+    padding: 1rem 2rem;
+    margin-bottom: 2em;;
+}
+
+.btn { 
+    display: inline-block;
+    color: #fff;
+    background-color: #cd143c;
+    border-radius: 3em;
+    padding: .5em 1.50em;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.btn:hover, 
+.btn:focus {
+    color: #f5f5f5;
+    opacity: .75;
+}
