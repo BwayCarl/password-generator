@@ -16,28 +16,39 @@ var specialSymbols  = " ! @ # $ % ^ & * ( ) + - > < ~ _";
 var specialSymbolsArrays = specialSymbols.split (" ");
 
 
-
-document.querySelector("#generate").addEventListener("onclick", createPassword()); 
-
-
-// Prompt password length and alert for incorrect parapmeters.
-function createPassword () {
-    var confirmLength = prompt ("How many characters long would you like your password to be? (Min. 8 / Max. 128)");
-}
-if (confirmLength <7 || confirmLength >=129) {
-    alert ("Must be between 8 and 128 characters.")
-}
-
-if (condition) {
-    
-} else {
-    
-}
-//Password variables
+// Variables for confirmation prompts
 
 var confirmLength = "";
-var confirmUpperCase;
-var confirmLowerCase;
+var confirmUpperCaseArray;
+var confirmLowerCaseArray;
 var confirmNumeric;
-var confirmSpecial;
+var confirmSpecialSymbolsArray;
+
+// Prompts for password length and character choices and alert for incorrect parameters.
+
+function createPassword () {
+    var confirmLength = prompt("How many characters long would you like your password to be? (Min. 8 / Max. 128)");
+    
+    while (confirmLength <8 || confirmLength >128) {
+        alert ("Must be between 8 and 128 characters.");
+        var confirmLength = prompt("How many characters long would you like your password to be? (Min. 8 / Max. 128)");
+    }
+
+ 
+        if (confirm("Would you like your password to contain uppercase letters? (Choose 'OK' for Yes, 'Cancel' for No.)"));{
+
+    }
+        if (confirm("Would you like your password to contain lowercase letters? (Choose 'OK' for Yes, 'Cancel' for No.)"));{
+
+    }
+        if (confirm("Would you like your password to contain numbers? (Choose 'OK' for Yes, 'Cancel' for No.)"));{
+
+    }
+        if (confirm("Would you like your password to contain special characters? (Choose 'OK' for Yes, 'Cancel' for No.)"));{
+
+    }
+}
+
+
+// document.querySelector("#generate").addEventListener("onclick", createPassword()); 
 
