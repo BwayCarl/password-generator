@@ -30,7 +30,7 @@ function generatePassword() {
         return;
     } 
     // Uppercase option:
-  let upperCaseResponse = confirm("Would you like your password to contain UPPERCASE letters? (Choose 'OK' for Yes, 'Cancel' for No.)");
+    let upperCaseResponse = confirm("Would you like your password to contain UPPERCASE letters? (Choose 'OK' for Yes, 'Cancel' for No.)");
 
     if (upperCaseResponse) {
         characters += upperCase;
