@@ -1,7 +1,7 @@
 # password-generator
 Homework Assignment - create a password generator using JS.
 
-• Wnen GENERATE PASSWORD button it clicked, prompts ask for certain criteria.
+• When GENERATE PASSWORD button it clicked, prompts ask for certain criteria.
     - Number of characters
     - Uppercase option
     - Lowercase option
