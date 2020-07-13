@@ -1,60 +1,76 @@
-//Password Generator using 8-128 characters based on user input when prompted.
+// PASSWORD GENERATOR using 8-128 characters based on user input.
+// --------------------------------------------------------------
+
+// Character Variables:
+const upperCase = "ABCDEFGHIJKLMNOPQRSTUZWXYZ";
+const lowerCase = "abcdefghijklmnopqrstuvwxyz";
+const num = "0123456789";
+const symbols = "!#$%&'()*+,-./:;<=>?@[^_`{|}~";
+
+// Query Selectors
+let passwordTextarea = document.querySelector("#password");
+let generateButton = document.querySelector("#generate");
+
+// Event Listeners
+generateButton.addEventListener("click", generatePassword);
 
 
-//Variables for characters.
+//User input with prompts for incorrect data entry.
+function generatePassword() {
 
-    // UPPER CASE
-var upperCase = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z";
-var upperCaseArray = upperCase.split(" ");
-    // lower case
-var lowerCase = "a b c d e f g h i j k l m n o p q r s t u v w x y z";
-var lowerCaseArray = lowerCase.split (" ");
-    // Numb3r5
-var numeric = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-    // Spec!@l Ch@r@cters
-var specialSymbols  = "! @ # $ % ^ & * ( ) + - > < ~ _ / ; : '";
-var specialSymbolsArrays = specialSymbols.split (" ");
+    let newPassword = "";
+    let characters = "";
+
+    let passwordLength = prompt("How many characters long would you like your password to be? (Min. 8 / Max. 128)");
 
 
-// Variables for confirmation prompts
+    // isNan function researched at MDN Web Docs[ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isNaN ] Discovered at Travrsy Media YouTube tutoral [ https://www.youtube.com/watch?v=hdI2bqOjy3c ].
+    if (Number(passwordLength < 8) || Number(passwordLength > 128) || isNaN(passwordLength)) {
+        alert("Must be between 8 and 128 characters.");
+        return;
+    } 
+    // Uppercase option:
+  let upperCaseResponse = confirm("Would you like your password to contain UPPERCASE letters? (Choose 'OK' for Yes, 'Cancel' for No.)");
 
-var confirmLength = "";
-var confirmUpperCaseArray;
-var confirmLowerCaseArray;
-var confirmNumeric;
-var confirmSpecialSymbolsArray;
+    if (upperCaseResponse) {
+        characters += upperCase;
+    }
 
-// Prompts for password length and character choices and alert for incorrect parameters.
+    // Lowercase option:
+    let lowerCaseResponse = confirm("Would you like your password to contain lowercase letters? (Choose 'OK' for Yes, 'Cancel' for No.)");
 
-function createPassword () {
-    var confirmLength = prompt("How many characters long would you like your password to be? (Min. 8 / Max. 128)");
-}
-    if (confirmLength <8 || confirmLength >128) {
-        alert ("Must be between 8 and 128 characters.");
-        var confirmLength = prompt("How many characters long would you like your password to be? (Min. 8 / Max. 128)");
+    if (lowerCaseResponse) {
+        characters += lowerCase;
+    }
+
+    // Numbers option:
+    let numResponse = confirm("Would you like your password to contain numbers? (Choose 'OK' for Yes, 'Cancel' for No.)");
+
+    if (numResponse) {
+        characters += num;
+    }
+
+    // Special symbols option:
+    let symbolsResponse = confirm("Would you like your password to contain spec!@l ch@r&cters? (Choose 'OK' for Yes, 'Cancel' for No.)");
+
+    if (symbolsResponse) {
+        characters += symbols;
+    }
+
+    // If no options are chosen:
+    if (characters === "") {
+        alert("You must choose at least one character type. Try again.");
+    }
     
-    // Array.prototype.push researched at Mozilla MDN Wed Docs https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push
-    }
-        if (confirm("Would you like your password to contain UPPERCASE letters? (Choose 'OK' for Yes, 'Cancel' for No.)")) {
-            Array.prototype.push.apply(charTypes, upperCaseArray);
-    }
-        if (confirm("Would you like your password to contain lowercase letters? (Choose 'OK' for Yes, 'Cancel' for No.)")) {
-            Array.prototype.push.apply(charTypes, lowerCaseArray);
-    }
-        if (confirm("Would you like your password to contain numbers? (Choose 'OK' for Yes, 'Cancel' for No.)")) {
-            (charTypes, numeric);
-    }
-        if (confirm("Would you like your password to contain special characters? (Choose 'OK' for Yes, 'Cancel' for No.)")) {
-            Array.prototype.push.apply(charTypes, specialSymbolsArray);
-    }
-        if (charTypes.length === 0) {
-         alert ("You must choose at least one character type. Try again.");
-    }
+// For loop to generate password 
+    if (Number(passwordLength >= 8) && Number(passwordLength <= 128)) {
+        for (var i = 0; i < passwordLength; i++) {
+            newPassword += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
 
-else {
-    for(var i=0; i<confirmLength; i++){
-        var random = Math.floor(Math.random()*charTypes.length);
-        endResult += charTypes[random];
+// Local Storage researched at dcode YouTube tutorial [ https://www.youtube.com/watch?v=k8yJCeuP6I8 ].
+        localStorage.setItem("password", newPassword);
+        let newPasswordStr = localStorage.getItem("password");
+        passwordTextarea.textContent = newPasswordStr;
     }
 }
-// document.querySelector("#generate").addEventListener("onclick", createPassword()); 

@@ -24,9 +24,12 @@ body {
 
 #password {
     width: 100%;
-    padding: 2rem;
+    padding: 2rem 1rem;
 }
-
+::placeholder {
+    text-align: center;
+    
+}
 .btn { 
     display: inline-block;
     color: #fff;
