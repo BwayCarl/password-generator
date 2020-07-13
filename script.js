@@ -70,7 +70,7 @@ function generatePassword() {
 
 // Local Storage researched at dcode YouTube tutorial [ https://www.youtube.com/watch?v=k8yJCeuP6I8 ].
         localStorage.setItem("password", newPassword);
-        let newPasswordStr = localStorage.getItem("password");
-        passwordTextarea.textContent = newPasswordStr;
+        let newPasswordString = localStorage.getItem("password");
+        passwordTextarea.textContent = newPasswordString;
     }
 }
