@@ -1,5 +1,8 @@
 # password-generator
-Homework Assignment - create a password generator using JS.
+
+https://bwaycarl.github.io/password-generator/Homework 
+
+Assignment - create a password generator using JS.
 
 • When GENERATE PASSWORD button it clicked, prompts ask for certain criteria.
     - Number of characters
