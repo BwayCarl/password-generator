@@ -2,7 +2,7 @@
 
 https://bwaycarl.github.io/password-generator/
 
-Screenshot of App: https://github.com/BwayCarl/password-generator/blob/master/Screen%20Shot%202020-07-18%20at%201.34.58%20PM.png
+![App Screenshot(https://github.com/BwayCarl/password-generator/blob/master/Screen%20Shot%202020-07-18%20at%201.34.58%20PM.png)
 
 Homework Assignment - create a password generator using JS.
 
